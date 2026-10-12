@@ -1,0 +1,225 @@
+:root {
+  /* Retarget Bootstrap's primary from stock blue to the brand teal so every
+     .btn-primary / .text-primary / .bg-primary across the app matches the
+     reference design without touching each page. */
+  --bs-primary: #0c5b54;
+  --bs-primary-rgb: 12, 91, 84;
+  --bs-link-color: #0c5b54;
+  --bs-link-hover-color: #08453f;
+  --bs-body-bg: #f6ede1;
+  --bs-body-color: #1b1714;
+  --tourism-green: #198754;
+  --tourism-orange: #c4791a;
+  --tourism-teal: #0c5b54;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f6ede1;
+  color: #1b1714;
+}
+
+/* Headings use the display serif throughout. */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.display-1,
+.display-2,
+.display-3,
+.display-4 {
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.leaflet-container {
+  height: 100%;
+  width: 100%;
+  z-index: 0;
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.leaflet-popup-content {
+  margin: 0.5rem 0.75rem;
+  line-height: 1.5;
+}
+
+.custom-marker {
+  background: transparent !important;
+  border: none !important;
+}
+
+.btn-primary {
+  --bs-btn-bg: var(--bs-primary);
+  --bs-btn-border-color: var(--bs-primary);
+  --bs-btn-hover-bg: #08453f;
+  --bs-btn-hover-border-color: #08453f;
+  --bs-btn-active-bg: #063733;
+  --bs-btn-active-border-color: #063733;
+}
+
+.btn-success {
+  --bs-btn-bg: var(--tourism-green);
+  --bs-btn-border-color: var(--tourism-green);
+}
+
+.btn-warning {
+  --bs-btn-bg: var(--tourism-orange);
+  --bs-btn-border-color: var(--tourism-orange);
+  --bs-btn-hover-bg: #e29a34;
+  --bs-btn-hover-border-color: #e29a34;
+  --bs-btn-color: #fff;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-active-color: #fff;
+}
+
+/* Cream editorial hero matching the reference landing screen. */
+.hero-section {
+  background: #f6ede1;
+  color: #1b1714;
+  padding: 4.5rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section::after {
+  content: '';
+  position: absolute;
+  right: -120px;
+  top: -120px;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(196, 121, 26, 0.1), transparent 68%);
+  pointer-events: none;
+}
+
+.card {
+  border: none;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  transition: box-shadow 0.15s ease-in-out;
+}
+
+.card:hover {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.destination-card {
+  height: 100%;
+  overflow: hidden;
+}
+
+.destination-card img {
+  transition: transform 0.3s ease;
+}
+
+.destination-card:hover img {
+  transform: scale(1.05);
+}
+
+.itinerary-day {
+  border-left: 3px solid var(--bs-primary);
+  padding-left: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.itinerary-activity {
+  background: white;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+.budget-breakdown .progress {
+  height: 0.5rem;
+  border-radius: 0.25rem;
+}
+
+.form-floating > label {
+  color: #6c757d;
+}
+
+.page-link {
+  color: var(--bs-primary);
+}
+
+.page-item.active .page-link {
+  background-color: var(--bs-primary);
+  border-color: var(--bs-primary);
+}
+
+.dropdown-menu {
+  border: none;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.modal-content {
+  border: none;
+  border-radius: 1rem;
+}
+
+.spinner-border {
+  width: 3rem;
+  height: 3rem;
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 2.5rem 0;
+  }
+  
+  .hero-section h1 {
+    font-size: 2rem;
+  }
+}
+
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.auth-card {
+  max-width: 450px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out;
+}
+
+.badge-activity {
+  font-size: 0.75rem;
+  padding: 0.35em 0.65em;
+}
